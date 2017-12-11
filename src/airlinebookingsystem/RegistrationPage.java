@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package airlinebookingsystem;
 
+import java.sql.*;
 /**
  *
  * @author christopher
@@ -14,8 +16,14 @@ public class RegistrationPage extends javax.swing.JFrame {
     /**
      * Creates new form RegistrationPage
      */
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    Statement st = null;
+    
     public RegistrationPage() {
         initComponents();
+        conn = ConnectionManager.getConnection();
     }
 
     /**
@@ -202,8 +210,23 @@ public class RegistrationPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();//get rid of current frame
-        new StartUpPage().setVisible(true); // this will displays your login frame
+      /** try{
+            String sql = "SELECT * FROM admin WHERE user_name=? AND password=?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, jtfName.getText());
+            ps.setString(2, jpfPassword.getText());
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Welcome" +jtfName.getText());
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Invaild user name or password", "Access Denied", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    **/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -215,6 +238,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -240,6 +264,8 @@ public class RegistrationPage extends javax.swing.JFrame {
             }
         });
     }
+        //GEN-LAST:event_btnLoginActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
