@@ -5,7 +5,7 @@
  */
 package airlinebookingsystem;
 
-import Classes.ConnectionManager;
+import airlinebookingsystem.Classes.ConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class UserLogin extends javax.swing.JFrame {
 
-   Connection conn = null;
+    /**
+     * Creates new form UserLogin
+     */
+    Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     Statement st = null;
@@ -40,10 +43,10 @@ public class UserLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnLoginUser = new javax.swing.JButton();
-        btnloginBack = new javax.swing.JButton();
-        jpfUserpw = new javax.swing.JPasswordField();
+        btnLogin = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jtfUsername = new javax.swing.JTextField();
+        jpfPword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,19 +59,19 @@ public class UserLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Password");
 
-        btnLoginUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLoginUser.setText("Login");
-        btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginUserActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
-        btnloginBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnloginBack.setText("Back");
-        btnloginBack.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnloginBackActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -76,77 +79,80 @@ public class UserLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnLoginUser)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnloginBack))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jpfPword))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addComponent(jLabel3))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jpfUserpw, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(108, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtfUsername))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(277, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnLogin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBack))
+                            .addComponent(jLabel1))))
+                .addGap(254, 254, 254))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jpfUserpw, jtfUsername});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLoginUser, btnloginBack});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addGap(82, 82, 82)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jpfUserpw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jpfPword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnloginBack)
-                    .addComponent(btnLoginUser))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addComponent(btnLogin)
+                    .addComponent(btnBack))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnloginBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginBackActionPerformed
-        this.dispose();//get rid of current frame
-     
-         new StartUpPage().setVisible(true); // this will displays your login frame
-    }//GEN-LAST:event_btnloginBackActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        StartUpPage startpg = new StartUpPage();
+        startpg.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed
-       try{
-            String sql = "SELECT * FROM login WHERE user=? AND password=?";
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, jtfUsername.getText());
-            ps.setString(2, jpfUserpw.getText());
-            rs = ps.executeQuery();
-            
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Welcome");
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Invaild user name or password", "Access Denied", JOptionPane.ERROR_MESSAGE);
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+       try {
+                //conn = ConnectionManager.getConnection();
+                String sql = "SELECT * FROM login WHERE user= ? AND password= ?";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, jtfUsername.getText());
+                ps.setString(2, jpfPword.getText());
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Welcome "+jtfUsername.getText());
+                    FlightBookingGUI flight = new FlightBookingGUI();
+                    flight.setVisible(true);
+                    dispose();
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Access Denied", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }//GEN-LAST:event_btnLoginUserActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,12 +190,12 @@ public class UserLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLoginUser;
-    private javax.swing.JButton btnloginBack;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jpfUserpw;
+    private javax.swing.JPasswordField jpfPword;
     private javax.swing.JTextField jtfUsername;
     // End of variables declaration//GEN-END:variables
 }
