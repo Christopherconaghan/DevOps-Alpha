@@ -26,7 +26,7 @@ public class ConnectionManager {
 	// credentials for database including AWS RDS database endpoint and JDBC
 	// driver
 	final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	final String DB_URL = "jdbc:mysql://myflightdb.cvjkp9gulexe.eu-west-1.rds.amazonaws.com/myflightdb";
+	final String DB_URL = "jdbc:mysql://myflightdb.cvjkp9gulexe.eu-west-1.rds.amazonaws.com";
 	final String USER_NAME = "user";
 	final String PASSWORD = "myflight";
 
@@ -55,9 +55,6 @@ public class ConnectionManager {
 		}
 
 	}
-
-    
-   
 
     public static Connection getConnection() {
         try {

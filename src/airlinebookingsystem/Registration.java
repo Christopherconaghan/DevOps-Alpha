@@ -5,13 +5,14 @@
  */
 package airlinebookingsystem;
 
-import java.awt.HeadlessException;
+//import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.DriverManager;
 
 /**
  *
@@ -221,23 +222,47 @@ public class Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_Password2ActionPerformed
 
     private void ConfirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmBtnActionPerformed
-        try{
-            String query = "INSERT INTO dbflight.Registration( First_Name, Surname, Address, Email, Password, Phone_Number) values (?, ?, ?, ?, ?, ?,)";
-         
-            ps = conn.prepareStatement(query);
-            ps.setString(1, First_Name.getText());
-            ps.setString(2, Surname.getText());
-            ps.setString(3, Address.getText());
-            ps.setString(4, Email.getText());
-            ps.setString(5, Password.getText());
-            ps.setString(6, Phone_No.getText());
-            ps.execute();
-            
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-            System.out.print("wrong");
-        }
+      
+				try {
+					// Opens window
+					String pw = "";
+					String pw2 ="";
+					pw = Password.getText();
+					pw2= Password2.getText();
+					if(pw.equals(pw2)) {
+						
+					
+					ConnectionManager conn = new ConnectionManager();
+					conn.connectToDatabase();
+					
+					conn.stmt = conn.conn.createStatement();
+
+					String insertQuery = ("INSERT INTO dbflight.Registration( First_Name, Surname, Address, Email, Password, Phone_Number) values ('"
+							+ First_Name.getText()+ "','" + Surname.getText() + "','" + Address.getText() + "','"+ Email.getText() + "','" + Password.getText()
+							+ "','" + Phone_No.getText() +"')");
+
+					conn.stmt.executeQuery("USE dbflight");
+					conn.stmt.execute(insertQuery);
+
+					// close connection
+					conn.conn.close();
+					
+					First_Name.setText("");
+					Surname.setText("");
+					Address.setText("");
+					Email.setText("");
+					Password.setText("");
+					Phone_No.setText("");
+					Password2.setText("");
+					JOptionPane.showMessageDialog(null, "Registration Complete");
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Passwords do not match");
+					}
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, ex.getMessage());
+				}
+
     }//GEN-LAST:event_ConfirmBtnActionPerformed
 
     
