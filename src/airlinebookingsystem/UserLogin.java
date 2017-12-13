@@ -112,6 +112,13 @@ public class UserLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    @SuppressWarnings("unused")
+	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();//get rid of current frame
+     
+         new FlightBookingGUI().setVisible(true); // this will displays your login frame
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();//get rid of current frame
