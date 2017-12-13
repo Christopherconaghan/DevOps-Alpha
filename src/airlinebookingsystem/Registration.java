@@ -88,11 +88,7 @@ public class Registration extends javax.swing.JFrame {
         Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         Password2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Password2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Password2ActionPerformed(evt);
-            }
-        });
+        
 
         FN_Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         FN_Label.setText("First Name");
@@ -125,6 +121,11 @@ public class Registration extends javax.swing.JFrame {
 
         BackBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BackBtn.setText("Back");
+        BackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackBtn(evt);
+            }
+        });
 
         Title.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Title.setText("Registration Page");
@@ -217,8 +218,9 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SurnameActionPerformed
 
-    private void Password2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Password2ActionPerformed
-        // TODO add your handling code here:
+    private void BackBtn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Password2ActionPerformed
+    	 this.setVisible(false);
+    	new UserLogin().setVisible(true);
     }//GEN-LAST:event_Password2ActionPerformed
 
     private void ConfirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmBtnActionPerformed
