@@ -110,7 +110,7 @@ public class StartUpPage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);//remove visibiity of this page
-        new RegistrationPage().setVisible(true);//set registration page visible
+        new Registration().setVisible(true);//set registration page visible
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
